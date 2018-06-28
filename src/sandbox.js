@@ -1,25 +1,13 @@
-const http = require('http');
-const fs = require('fs');
-const port = 8000;
+const express = require('express');
+const app = express();
+const port  = 8000;
 
-const server = http.createServer(
-    (req, resp) => {
-      console.log(req.url);
-      if (req.url === '/hello') {
-        resp.end('Hello Node.js Server!')
-      }else if (req.url === '/data'){
-        fs.readFile('../data/plates.json', 'utf-8', (err, data) => {
-          if (err) throw  err;
-          console.log(data);
-          resp.end(data);
-        });
-
-      }else{
-        resp.end('Nothing to do here')
-      }
-    }
-        );
-
-server.listen(port, (err) => {
-    console.log(`server listening on ${port}`)
+app.get('/:parameter?', (request, resp) => {
+  resp.send('<h1>Hello Express World!</h1> Your param:' + request.params.parameter);
 });
+
+app.listen(port, (err) => {
+  console.log(`server listening on ${port}`)
+});
+
+//90min50

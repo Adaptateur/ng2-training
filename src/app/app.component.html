@@ -1,0 +1,18 @@
+<app-navigation></app-navigation>
+
+<main role="main">
+  <app-jumbotron title="Mon titre" description="Ma description"></app-jumbotron>
+
+  <div class="container">
+    <div class="row" >
+      <app-license-plate class="col-md-4" *ngFor="let lp of licensePlates"
+      [plate]="lp" buttonText="Acheter"></app-license-plate>
+    </div>
+  </div>
+</main>
+
+<footer class="container">
+  <p>&copy; License Plate Store 2018</p>
+</footer>
+
+<!--190 minutes-->
